@@ -27,7 +27,6 @@ export default class TikTok extends React.Component {
   }
 
   createHTML() {
-    console.log();
     return {__html: this.state.tiktoks?.html};
   }
 
