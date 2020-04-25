@@ -4,9 +4,14 @@ import logo from './images/logo.png'
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/frontpage.css'
+import {
+  Link,
+} from "react-router-dom";
 
 export default class FrontPage extends React.Component{
-  
+
+
+
   render(){
     var script = document.createElement("script");
     script.src = "https://www.tiktok.com/embed.js";
@@ -16,12 +21,15 @@ export default class FrontPage extends React.Component{
       <div>
         <Image src={logo} width={"10%"}/>
         <div class="center">
-          <Button variant="success">Donate</Button>{' '}
+          <Link to="/donate">
+            <Button variant="success">Donate</Button>{' '}
+          </Link>
+
           <Button variant="warning">Next</Button>{' '}
         </div>
-        <div dangerouslySetInnerHTML={createHTML()} />        
+        <div dangerouslySetInnerHTML={createHTML()} />
       </div>
-      
+
     );
   }
 }
