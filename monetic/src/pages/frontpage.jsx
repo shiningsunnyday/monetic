@@ -87,7 +87,7 @@ export default class FrontPage extends React.Component{
       let vids = all_vids.vids
       let ranked = all_vids.ranked
       let link = 'https://www.tiktok.com/@' + vids[0][0] + '/video/' + vids[0][1];
-      fetch(link)
+      fetch('https://www.tiktok.com/oembed?url=' + link)
       .then(res => res.json())
       .then((data) => {
         this.setState({
@@ -97,7 +97,7 @@ export default class FrontPage extends React.Component{
         })})
       .then(()=>{
         let ranked_link = 'https://www.tiktok.com/@' + this.state.ranked_vids[0][0] + '/video/' + this.state.ranked_vids[0][1];
-        fetch(ranked_link)
+        fetch('https://www.tiktok.com/oembed?url=' + ranked_link)
         .then(res => res.json())
         .then((data) => {
           this.setState({
