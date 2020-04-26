@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default class GoFundMe extends React.Component{
   render(){
     return(

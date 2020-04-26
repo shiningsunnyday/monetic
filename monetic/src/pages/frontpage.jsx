@@ -23,9 +23,9 @@ export default class FrontPage extends React.Component{
 
           <DropdownButton class="dropdown" id="dropdown-basic-button" title="Request">
             <Dropdown.Item><Form /></Dropdown.Item>
-          </DropdownButton>
+          </DropdownButton>{' '}
         
-          <Link to="/donate">
+          <Link to="/donate" target="_blank">
             <Button variant="success">Donate</Button>{' '}
           </Link>
           <Button variant="warning">Next</Button>{' '}
