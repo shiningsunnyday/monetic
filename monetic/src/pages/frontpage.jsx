@@ -56,7 +56,7 @@ export default class FrontPage extends React.Component{
     }
     var vids = [];
     let numKeys = arr.length;
-    while(vids.length < 2){
+    while(vids.length < 5){
       var r = Math.floor(Math.random() * numKeys);
       if(vids.indexOf(arr[r]) === -1) vids.push(arr[r]);
     }
