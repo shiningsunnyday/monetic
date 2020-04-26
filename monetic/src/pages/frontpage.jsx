@@ -7,11 +7,21 @@ import './css/frontpage.css'
 import {
   Link,
 } from "react-router-dom";
-import TikTok from './tiktok'
+import TikTok from './tiktok';
+
+
+
 
 export default class FrontPage extends React.Component{
 
+  constructor(props) {
+    super(props);
+  }
+
+
+
   render() {
+
     return(
       <div>
         <Image src={logo} width={"10%"}/>
@@ -21,7 +31,7 @@ export default class FrontPage extends React.Component{
           </Link>
           <Button variant="warning">Next</Button>{' '}
         </div>
-        <TikTok link={'https://www.tiktok.com/@scout2015/video/6718335390845095173'}></TikTok>
+        <TikTok></TikTok>
       </div>
 
     );
