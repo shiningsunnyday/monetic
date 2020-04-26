@@ -38,13 +38,15 @@ class Form extends React.Component {
     handleSubmit(event) {
       console.log('tiktok: ' + this.state.tiktok);
       console.log('gofundme: ' + this.state.gofundme);
-
       event.preventDefault();
-
-      const ref = firebase.database().ref(this.state.username);
+      const ref = firebase.database().ref('content/'+this.state.username);
       ref.set(this.state.video_id);
       ref.child(this.state.video_id).set(this.state.gofundme);
       this.props.history.push('/');
+      const info_ref = firebase.database().ref('user_info/'+this.state.username);
+      info_ref.set("state")
+      info_ref.child("state").set(this.state.state.toLowerCase());
+      this.props.history.push("/")
     }
 
     render() {
@@ -62,7 +64,7 @@ class Form extends React.Component {
             </p>
 
             <p>
-              <input placeholder="GoFundMe ID (fill in tingcancerjourney)" type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} required/>
+              <input placeholder="GoFundMe ID (fill in jtingcancerjourney)" type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} required/>
             </p>
 
             <p>
@@ -74,7 +76,7 @@ class Form extends React.Component {
             </p>
 
             <p>
-              <input placeholder="State" type="text" name='state' value={this.state.state} onChange={this.myChangeHandler} />
+              <input placeholder="State Initials (e.g. CA)" type="text" name='state' value={this.state.state} onChange={this.myChangeHandler} />
             </p>
 
             <p>
@@ -94,19 +96,19 @@ class Form extends React.Component {
             </p>
 
             <p>
-              
+
               <input placeholder="Income loss due to COVID-19" type="text" name='incomeloss' value={this.state.incomeloss} onChange={this.myChangeHandler} />
             </p>
 
             <Button variant="success" value="Submit" type="submit" >Submit</Button>{' '}
             {/* <input type="submit" value="Submit" /> */}
           </form>
-          
 
-          
-                  
+
+
+
         </div>
-          
+
       );
     }
 }
