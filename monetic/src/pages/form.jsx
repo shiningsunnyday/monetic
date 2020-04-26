@@ -1,7 +1,8 @@
 import React from 'react';
+import { Route , withRouter} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-export default class Form extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +30,8 @@ export default class Form extends React.Component {
     handleSubmit(event) {
       console.log('state: ' + this.state.tiktok);
       console.log('state: ' + this.state.address);
-      // event.preventDefault(); 
+      event.preventDefault();  
+      this.props.history.push('/');
     }
 
     
@@ -82,9 +84,11 @@ export default class Form extends React.Component {
             <input type="text" name='incomeloss' value={this.state.incomeloss} onChange={this.myChangeHandler} />
           </p>
 
-          <Button variant="success" value="Submit" type="submit">Submit</Button>{' '}
+          <Button variant="success" value="Submit" type="submit" >Submit</Button>{' '}
           {/* <input type="submit" value="Submit" /> */}
         </form>
       );
     }
 }
+
+export default withRouter(Form);
