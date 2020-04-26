@@ -1,6 +1,4 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
-import logo from './images/logo.png'
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -11,13 +9,14 @@ import {
 } from "react-router-dom";
 import TikTok from './tiktok'
 import Form from './form'
+import Header from './header';
 
 export default class FrontPage extends React.Component{
 
   render() {
     return(
       <div>
-        <Image src={logo} width={"10%"}/>
+        <Header/>
         <div class="center">
         
 
@@ -26,8 +25,8 @@ export default class FrontPage extends React.Component{
           </DropdownButton>{' '}
         
           <Link to="/donate" target="_blank">
-            <Button variant="success">Donate</Button>{' '}
-          </Link>
+            <Button variant="success">Donate</Button>
+          </Link>{' '}
           <Button variant="warning">Next</Button>{' '}
         </div>
         <TikTok link={'https://www.tiktok.com/@scout2015/video/6718335390845095173'}></TikTok>
