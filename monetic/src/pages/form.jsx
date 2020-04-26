@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route , withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import firebase from '../firebase.js';
 import './css/form.css';
@@ -46,7 +46,7 @@ class Form extends React.Component {
       const info_ref = firebase.database().ref('user_info/'+this.state.username);
       info_ref.set("state")
       info_ref.child("state").set(this.state.state.toLowerCase());
-      this.props.history.push("/")
+      this.props.history.push("/user")
     }
 
     render() {

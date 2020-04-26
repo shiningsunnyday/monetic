@@ -1,7 +1,6 @@
 import React from 'react';
 import GoFundMe from './gofundme';
 import Header from './header';
-import firebase from '../firebase.js';
 
 export default class Donate extends React.Component{
 
