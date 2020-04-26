@@ -39,7 +39,7 @@ export default class FrontPage extends React.Component{
       if (index === this.state.ind) {
         
         index = Math.floor(Math.random() * numKeys);
-        console.log("collison. new index: " + index);
+        console.log("collison. Generating new index: " + index);
       }
 
       let key = Object.keys(val)[index];
@@ -70,7 +70,7 @@ export default class FrontPage extends React.Component{
             <Button variant="primary">Request</Button>
           </Link>{' '}
 
-          <Link to={{pathname: "/donate",search: "?fund="+this.state.index}} target="_blank">
+          <Link to={{pathname: "/donate",search: "?fund="+this.state.ind}} target="_blank">
             <Button variant="success">Donate</Button>
           </Link>{' '}
           
