@@ -13,11 +13,13 @@ import Header from './header';
 
 export default class FrontPage extends React.Component{
 
+  state = {
+    index: 0,
+  }
+
   constructor(props) {
     super(props);
   }
-
-
 
   render() {
 
@@ -25,18 +27,15 @@ export default class FrontPage extends React.Component{
       <div>
         <Header/>
         <div class="center">
-
-
           <DropdownButton class="dropdown" id="dropdown-basic-button" title="Request">
             <Dropdown.Item><Form /></Dropdown.Item>
           </DropdownButton>{' '}
-
-          <Link to="/donate" target="_blank">
+          <Link to={{pathname: "/donate",search: "?fund="+this.state.index}} target="_blank">
             <Button variant="success">Donate</Button>
           </Link>{' '}
           <Button variant="warning">Next</Button>{' '}
         </div>
-        <TikTok></TikTok>
+        <TikTok updateFund={(ind)=>this.setState({index: ind})}></TikTok>
       </div>
 
     );
