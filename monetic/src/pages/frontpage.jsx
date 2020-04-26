@@ -9,6 +9,7 @@ import {
 import TikTok from './tiktok'
 import Form from './form'
 import Header from './header';
+import Dropdown from 'react-bootstrap'
 
 // import Card from './card';
 
@@ -29,9 +30,9 @@ export default class FrontPage extends React.Component{
       <div>
         <Header/>
         <div class="center">
-          <Link to="/donate" target="_blank"/>
-
-            <Form />
+          <Link to={{pathname: "/signup"}}>
+            <Button variant="primary">Request</Button>
+          </Link>{' '}
 
           <Link to={{pathname: "/donate",search: "?fund="+this.state.index}} target="_blank">
             <Button variant="success">Donate</Button>
