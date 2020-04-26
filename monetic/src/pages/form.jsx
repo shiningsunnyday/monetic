@@ -48,18 +48,21 @@ class Form extends React.Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
+          <div>Example: https://www.tiktok.com/@deeek2/video/6813888851283545349</div>
+          <div>https://www.gofundme.com/f/jtingcancerjourney</div>
+
           <label>
-            TikTok Username (e.g. deeek2):
+            TikTok Username (fill in deeek2):
             <input type="text" name='username' value={this.state.username} onChange={this.myChangeHandler} />
           </label>
 
           <label>
-            TikTok Video ID (e.g. 6813888851283545349):
+            TikTok Video ID (fill in 6813888851283545349):
             <input type="text" name='video_id' value={this.state.video_id} onChange={this.myChangeHandler} />
           </label>
 
           <p>
-            GofundMe Id (e.g. monetic)
+            GofundMe Id (fill in tingcancerjourney)
             <input type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} />
           </p>
 
