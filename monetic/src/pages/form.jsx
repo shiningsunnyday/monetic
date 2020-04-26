@@ -30,7 +30,7 @@ export default class Form extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            TiKTok Link:
+            TikTok Link:
             <input type="text" name='tiktok' value={this.state.tiktok} onChange={this.myChangeHandler} />
           </label>
 

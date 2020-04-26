@@ -3,7 +3,10 @@ import React from 'react';
 export default class GoFundMe extends React.Component{
   render(){
     return(
-      <embed height="500px" width="100%" src={this.props.link} type="text/html"></embed>
+      <div>
+        <embed height="600px" width="100%" src={"https://www.gofundme.com/f/" + this.props.id + "/widget/large"} type="text/html"></embed>
+      </div>
     );
   }
 }
+
