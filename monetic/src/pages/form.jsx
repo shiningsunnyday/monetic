@@ -3,13 +3,13 @@ import { Button } from 'react-bootstrap';
 
 export default class Form extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        tiktok: '',
-        gofundme: '',
-      
-      };
-  
+    super(props);
+    this.state = {
+      tiktok: '',
+      gofundme: '',
+    
+    };
+
       this.handleChange = this.myChangeHandler.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -25,6 +25,8 @@ export default class Form extends React.Component {
       console.log('gofundme: ' + this.state.gofundme);
       event.preventDefault(); 
     }
+
+    
   
     render() {
       return (
