@@ -7,11 +7,14 @@ export default class Form extends React.Component {
       this.state = {
         tiktok: '',
         gofundme: '',
-      
+
       };
-  
+
       this.handleChange = this.myChangeHandler.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+
+
+      console.log(this.parse_tiktok());
     }
 
     myChangeHandler = (event) => {
@@ -19,13 +22,18 @@ export default class Form extends React.Component {
       let val = event.target.value;
       this.setState({[nam]: val});
     }
-  
+
+    parse_tiktok = (tiktok) => {
+      return "hi"
+    }
+
     handleSubmit(event) {
       console.log('tiktok: ' + this.state.tiktok);
       console.log('gofundme: ' + this.state.gofundme);
-      event.preventDefault(); 
+      let tiktok_id = this.parse_tiktok(this.state.tiktok);
+      console.log(tiktok_id);
     }
-  
+
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
@@ -39,9 +47,10 @@ export default class Form extends React.Component {
             <input type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} />
           </p>
 
-          <Button variant="success" value="Submit" type="submit">Submit</Button>{' '}
-          {/* <input type="submit" value="Submit" /> */}
+
+          <input type="submit" value="Submit" />
         </form>
       );
     }
 }
+//<Button variant="success" value="Submit" type="submit">Submit</Button>{' '}
