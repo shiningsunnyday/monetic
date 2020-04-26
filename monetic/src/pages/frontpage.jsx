@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/frontpage.css'
@@ -11,30 +10,36 @@ import TikTok from './tiktok'
 import Form from './form'
 import Header from './header';
 
-export default class FrontPage extends React.Component{
+// import Card from './card';
 
+export default class FrontPage extends React.Component{
   state = {
     index: 0,
   }
 
   constructor(props) {
     super(props);
+  
   }
-
+  
   render() {
 
     return(
+      
       <div>
         <Header/>
         <div class="center">
-          <DropdownButton class="dropdown" id="dropdown-basic-button" title="Request">
-            <Dropdown.Item><Form /></Dropdown.Item>
-          </DropdownButton>{' '}
+          <Link to="/donate" target="_blank"/>
+
+            <Form />
+
           <Link to={{pathname: "/donate",search: "?fund="+this.state.index}} target="_blank">
             <Button variant="success">Donate</Button>
           </Link>{' '}
+          
           <Button variant="warning">Next</Button>{' '}
         </div>
+
         <TikTok updateFund={(ind)=>this.setState({index: ind})}></TikTok>
       </div>
 
