@@ -1,20 +1,21 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import firebase from '../firebase.js';
 
 export default class Form extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        tiktok: '',
+        username: '',
+        video_id: '',
         gofundme: '',
-
       };
 
       this.handleChange = this.myChangeHandler.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
 
 
-      console.log(this.parse_tiktok());
+
     }
 
     myChangeHandler = (event) => {
@@ -23,27 +24,33 @@ export default class Form extends React.Component {
       this.setState({[nam]: val});
     }
 
-    parse_tiktok = (tiktok) => {
-      return "hi"
-    }
 
     handleSubmit(event) {
       console.log('tiktok: ' + this.state.tiktok);
       console.log('gofundme: ' + this.state.gofundme);
-      let tiktok_id = this.parse_tiktok(this.state.tiktok);
-      console.log(tiktok_id);
+
+      event.preventDefault();
+
+      const ref = firebase.database().ref(this.state.username);
+      ref.set(this.state.video_id);
+      ref.child(this.state.video_id).set(this.state.gofundme);
     }
 
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            TikTok Link:
-            <input type="text" name='tiktok' value={this.state.tiktok} onChange={this.myChangeHandler} />
+            TikTok Username (e.g. deeek2):
+            <input type="text" name='username' value={this.state.username} onChange={this.myChangeHandler} />
+          </label>
+
+          <label>
+            TikTok Video ID (e.g. 6813888851283545349):
+            <input type="text" name='video_id' value={this.state.video_id} onChange={this.myChangeHandler} />
           </label>
 
           <p>
-            GofundMe Id:
+            GofundMe Id (e.g. monetic)
             <input type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} />
           </p>
 
