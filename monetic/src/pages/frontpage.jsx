@@ -9,45 +9,19 @@ import {
 import TikTok from './tiktok'
 import Form from './form'
 import Header from './header';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 // import Card from './card';
 
 export default class FrontPage extends React.Component{
+  state = {
+    index: 0,
+  }
+
   constructor(props) {
     super(props);
-
-    this.state = {
-      showMenu: false,
-    };
-    
-
-    this.showMenu = this.showMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-    
-  }
-
-  showMenu(event) {
-    event.preventDefault();
-    
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener('click', this.closeMenu);
-    });
+  
   }
   
-  closeMenu(event) {
-    
-    if (!this.dropdownMenu.contains(event.target)) {
-      
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener('click', this.closeMenu);
-      });  
-      
-    }
-  }
-
   render() {
 
     return(
@@ -55,27 +29,18 @@ export default class FrontPage extends React.Component{
       <div>
         <Header/>
         <div class="center">
-        <Form/>     
-          {/* <DropdownButton class="dropdown" id="dropdown-basic-button" title="Request" onClick={this.showMenu}>
-          {
-            <div className="menu" ref={(element) => {
-                this.dropdownMenu = element;
-              }}
-            >
-              <Container>
-                <Form/>
-              </Container>
-            </div>            
-          }
-       
-          </DropdownButton>{' '} */}
+          <Link to="/donate" target="_blank"/>
 
-          <Link to="/donate" target="_blank">
+            <Form />
+
+          <Link to={{pathname: "/donate",search: "?fund="+this.state.index}} target="_blank">
             <Button variant="success">Donate</Button>
           </Link>{' '}
+          
           <Button variant="warning">Next</Button>{' '}
         </div>
-        <TikTok></TikTok>
+
+        <TikTok updateFund={(ind)=>this.setState({index: ind})}></TikTok>
       </div>
 
     );

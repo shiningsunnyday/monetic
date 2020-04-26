@@ -22,7 +22,8 @@ export default class TikTok extends React.Component {
         fetch('https://www.tiktok.com/oembed?url=' + link)
         .then(res => res.json())
         .then((data) => {
-          this.setState({ tiktoks: data })
+          this.setState({ tiktoks: data });
+          this.props.updateFund(index);
         })
         .catch(console.log);
 
