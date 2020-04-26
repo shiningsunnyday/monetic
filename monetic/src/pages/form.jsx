@@ -2,6 +2,7 @@ import React from 'react';
 import { Route , withRouter} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import firebase from '../firebase.js';
+import './css/form.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Form extends React.Component {
         occupation: '',
         householdsize: '',
         incomeloss: '',
+        income: '',
       };
 
       this.handleChange = this.myChangeHandler.bind(this);
@@ -47,63 +49,64 @@ class Form extends React.Component {
 
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <div>Example: https://www.tiktok.com/@deeek2/video/6813888851283545349</div>
-          <div>https://www.gofundme.com/f/jtingcancerjourney</div>
+        <div class="container">
+          <form onSubmit={this.handleSubmit} id="contact">
+          <h3>Request Form</h3>
+          <h4>Fill out this form to start using Monetic!</h4>
+            <p>
+              <input placeholder="TikTok Username (fill in deeek2)" type="text" name='username' value={this.state.username} onChange={this.myChangeHandler} required />
+            </p>
 
-          <label>
-            TikTok Username (fill in deeek2):
-            <input type="text" name='username' value={this.state.username} onChange={this.myChangeHandler} />
-          </label>
+            <p>
+              <input placeholder="TikTok Video ID (fill in 6813888851283545349)" type="text" name='video_id' value={this.state.video_id} onChange={this.myChangeHandler} required />
+            </p>
 
-          <label>
-            TikTok Video ID (fill in 6813888851283545349):
-            <input type="text" name='video_id' value={this.state.video_id} onChange={this.myChangeHandler} />
-          </label>
+            <p>
+              <input placeholder="GoFundMe ID (fill in tingcancerjourney)" type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} required/>
+            </p>
 
-          <p>
-            GofundMe Id (fill in tingcancerjourney)
-            <input type="text" name='gofundme' value={this.state.gofundme} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="Address" type="text" name='address' value={this.state.address} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            Address:
-            <input type="text" name='address' value={this.state.address} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="City" type="text" name='city' value={this.state.city} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            City:
-            <input type="text" name='city' value={this.state.city} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="State" type="text" name='state' value={this.state.state} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            State:
-            <input type="text" name='state' value={this.state.state} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="Zip Code" type="text" name='zipcode' value={this.state.zipcode} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            Zip Code:
-            <input type="text" name='zipcode' value={this.state.zipcode} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="Occupation" type="text" name='occupation' value={this.state.occupation} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            Occupation:
-            <input type="text" name='occupation' value={this.state.occupation} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="Income" type="text" name='income' value={this.state.income} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            Household Size:
-            <input type="text" name='householdsize' value={this.state.householdsize} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              <input placeholder="Household Size" type="text" name='householdsize' value={this.state.householdsize} onChange={this.myChangeHandler} />
+            </p>
 
-          <p>
-            Income loss due to Covid-19:
-            <input type="text" name='incomeloss' value={this.state.incomeloss} onChange={this.myChangeHandler} />
-          </p>
+            <p>
+              
+              <input placeholder="Income loss due to COVID-19" type="text" name='incomeloss' value={this.state.incomeloss} onChange={this.myChangeHandler} />
+            </p>
 
-          <Button variant="success" value="Submit" type="submit" >Submit</Button>{' '}
-          {/* <input type="submit" value="Submit" /> */}
-        </form>
+            <Button variant="success" value="Submit" type="submit" >Submit</Button>{' '}
+            {/* <input type="submit" value="Submit" /> */}
+          </form>
+          
+
+          
+                  
+        </div>
+          
       );
     }
 }
