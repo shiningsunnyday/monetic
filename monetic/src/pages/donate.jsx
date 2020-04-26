@@ -5,7 +5,6 @@ import firebase from '../firebase.js';
 
 export default class Donate extends React.Component{
 
-
   state = {
     id: ""
   }
